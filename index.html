@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang='en'>
+    <meta charset='UTF-8'>
+    <title>cheminfo.org</title>
+</head>
+<body>
+<div id='ci-visualizer' config='http://visualizer.epfl.ch/cheminfo/_design/flavor/_list/config/alldocs?key="default"'></div>
+<script>
+    window.onload = function () {
+        var visualizer = document.createElement('script');
+        var query = document.location.search;
+        var version = 'latest';
+        if (query) {
+            var parts = query.substr(1).split('&');
+            for (var i = 0; i < parts.length; i++) {
+                if(parts[i].indexOf('v=') === 0) {
+                    version = parts[i].substr(2);
+                    break;
+                }
+            }
+        }
+        if (query.indexOf('viewURL=') === -1) {
+            document.querySelector('#ci-visualizer').setAttribute('viewURL', 'http://visualizer.epfl.ch/cheminfo/10397ad749814a68dbed8e705344a063/view.json');
+        }
+        var prefix = 'http://www.lactame.com/visualizer/';
+        visualizer.setAttribute('data-main', prefix + version + '/init');
+        visualizer.setAttribute('src', prefix + version + '/components/requirejs/require.js');
+        document.head.appendChild(visualizer);
+    }
+</script>
+</body>
+</html>
