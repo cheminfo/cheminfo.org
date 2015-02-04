@@ -4,6 +4,14 @@
     <meta charset='UTF-8'>
     <title>cheminfo.org</title>
     <script src='http://www.lactame.com/lib/uri.js/1.14.1/URI.min.js'></script>
+    <style>
+        #ci-visualizer {
+            min-height: 100vh;
+        }
+        body {
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
 <div id='ci-visualizer' config='http://visualizer.epfl.ch/cheminfo/_design/flavor/_list/config/alldocs?key="default"'></div>
@@ -30,14 +38,14 @@
                 visualizerDiv.setAttribute('viewURL', 'http://visualizer.epfl.ch/cheminfo/554613d831e22b95c6eb805bec1437a2/view.json');
             }
         }
-
         visualizerDiv.setAttribute('config', 'http://visualizer.epfl.ch/cheminfo/_design/flavor/_list/config/alldocs?key="' + flavor + '"');
 
         var prefix = 'http://www.lactame.com/visualizer/';
         visualizer.setAttribute('data-main', prefix + version + '/init');
         visualizer.setAttribute('src', prefix + version + '/components/requirejs/require.js');
         document.head.appendChild(visualizer);
-    }
+    };
+
 </script>
 </body>
 </html>
